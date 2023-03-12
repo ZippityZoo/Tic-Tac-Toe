@@ -32,37 +32,60 @@ public class TicTacToe {
         int y = (int)(Math.random()*3);
         int [] randx = new int[2];
         if(game.getBlockVal(x, y) != 0){ 
-            game.findNearestEmpty();
-            randx = game.getLE();
+            //game.printLe();
+            randx = game.findNearestEmpty();
             return randx;    
         }
+        randx[0]=x;randx[1] =y;
         return randx;
     }
     public static int[] randomO(Board game){
         int x = (int)Math.random()*3;
         int y = (int)Math.random()*3;
-        int [] randO = new int[2];
-        if(game.getBlockVal(x, y) != 0){ 
-            game.findNearestEmpty();
-            randO = game.getLE();
-            return randO;    
+        int [] rando = new int[2];
+        if(game.getBlockVal(x, y) != 0){
+            //game.printLe();
+            rando = game.findNearestEmpty();
+            return rando;    
         }
-        return randO;
+        rando[0] = x;rando[1] = y;
+        return rando;
     }
     public static void cpuDitto(Board game){
+        int turn = 0;
         int [] current = new int[2];
-        while(!game.findWinner()||game.getEmpties() != 0){
+        while(!game.getWinner()||game.getEmpties() != 0){
+            
             current = randomX(game);
-            System.out.println("X's turn");
+            System.out.println("Turn "+turn + "\nX's turn\n");
             game.setBlock(1, current[0], current[1]);
+            //System.out.println(game.getEmpties());
             game.printBoard();
-            System.out.println("-------------");
-            if(game.findWinner()||game.getEmpties() == 0)
+            if(game.findWinner()||game.getEmpties() == 0){
                 break;
-            System.out.println("\n\nO's turn");
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
+            
+            System.out.println("\n\nO's turn\n");
             current = randomO(game);
             game.setBlock(-1,current[0],current[1]);
+            //System.out.println(game.getEmpties());
             game.printBoard();
+            System.out.println();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(game.findWinner()||game.getEmpties() == 0){
+                break;
+            }
+            turn++;
         }
     }
 }
