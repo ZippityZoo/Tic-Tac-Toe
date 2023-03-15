@@ -37,7 +37,6 @@ public class TicTacToe {
         int y = (int)Math.random()*3;
         int [] rando = new int[2];
         if(game.getBlockVal(x, y) != 0){
-            //game.printLe();
             rando = game.findNearestEmpty();
             return rando;    
         }
