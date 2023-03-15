@@ -46,17 +46,6 @@ public class Board extends Block{
         System.out.println("is empty");
         return false;
     }
-    //think of voiding this
-//    public boolean hasEmpty(){
-//        for(int x = 0;x< game.length;x++){
-//            for(int y = 0; y< game[x].length;y++){
-//                if(game[x][y].getBlockVal() == 0){
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
     public int[] findNearestEmpty(){
         if(empties > 0){
             for(int x = 0;x< game.length;x++){
