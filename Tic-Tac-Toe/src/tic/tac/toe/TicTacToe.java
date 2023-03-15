@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package tic.tac.toe;
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 //import java.awt.Canvas;
 /**
  *
@@ -16,15 +18,6 @@ public class TicTacToe {
      */
     public static void main(String[] args) {
         Board newGame = new Board();
-        System.out.println(newGame.getEmpties());
-        //newGame.setBlock(1, 0, 0);newGame.setBlock(1, 1, 0);newGame.setBlock(1, 0, 2);
-        //newGame.setBlock(-1, 1, 1);newGame.setBlock(-1, 0, 1);newGame.setBlock(-1, 2, 1);
-        //newGame.findNearestEmpty();
-        //System.out.println(newGame.getEmptyX()+" "+newGame.getEmptyY());
-        //newGame.printBoard();
-        //newGame.findWinner();
-        //System.out.println(newGame.getEmpties());
-        //newGame.isEmpty();  
         cpuDitto(newGame);
     }
     public static int[] randomX(Board game){
